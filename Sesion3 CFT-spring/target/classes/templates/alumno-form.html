@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <meta charset="utf-8" />
+     <title> CFT - Form. Alumno </title>
+</head>
+<body>
+     <h1>FORM ALUMNO</h1>
+     
+     <form th:action="@{/alumno}" th:object="${alumno}" method="post">
+         <p>
+             Nombre: <input type="text" th:field="*{nombre}"/>
+             <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" style="color: red;" />
+         </p>
+         <p>
+         Edad: <input type="text" th:field="*{edad}"/>
+         <span th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}" style="color: red;" />
+         </p>
+         <button type="submit">Guardar</button>   
+     
+     </form>
+     
+</body>
+</html>
