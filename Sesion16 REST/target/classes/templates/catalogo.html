@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Catalogo Productos</h1>
+	<div id="productos"></div>
+	<script>
+		fetch('http://localhost:8080/productos/destacados')
+			  .then(response => response.json())
+			  .then(productos => {
+				  let divProductos = document.getElementById("productos");
+				  let ul = document.createElement("ul");
+				  productos.forEach(producto => {
+					  let li = document.createElement("li");
+					  let textNode = document.createTextNode(producto.nombre)
+					  li.appendChild(textNode);
+					  ul.appendChild(li);
+				});
+				divProductos.appendChild(ul);
+			});
+	</script>
+</body>
+</html>
